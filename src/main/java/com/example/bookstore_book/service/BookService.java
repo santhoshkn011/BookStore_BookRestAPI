@@ -52,6 +52,16 @@ public class BookService implements IBookService{
             throw new BookException("ID: " + id + " is not available");
     }
 
+    //get book details by id(Microservice check)
+    @Override
+    public Book getBookDetailsById(Long id) {
+        Book bookDetails = bookRepo.findById(id).orElse(null);
+        if (bookDetails != null) {
+            return bookDetails;
+        } else
+            return null;
+    }
+
     //delete by id
     @Override
     public Book deleteData(Long id) {

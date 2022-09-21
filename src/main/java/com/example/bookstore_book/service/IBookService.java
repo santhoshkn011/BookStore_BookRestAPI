@@ -24,4 +24,6 @@ public interface IBookService {
     List<Book> sortDescendingByPrice();
 
     String updateQuantityById(QuantityDTO quantityDTO, Long id);
+
+    Book getBookDetailsById(Long id);
 }

@@ -43,6 +43,13 @@ public class BookController {
         ResponseDTO responseDTO = new ResponseDTO("Book details with ID: "+id,bookDetails);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
+
+    //Get the book details by Book ID(Microservice check)
+    @GetMapping("/Id/{id}")
+    public Book getBookDetailsById(@PathVariable Long id) {
+        Book bookDetails = bookService.getBookDetailsById(id);
+        return bookDetails;
+    }
     //Delete book details by ID
     @DeleteMapping("/delete/{id}")
     public ResponseEntity <ResponseDTO> deleteBookDataByID(@PathVariable Long id) {
